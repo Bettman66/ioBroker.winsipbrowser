@@ -44,12 +44,12 @@ function checkValueOfState(id, value, cb, counter) {
     });
 }
 
-describe('Test winsipbrowser', function () {
-    before('Test winsipbrowser: Start js-controller', function (_done) {
+describe('Test winsipBrowser', function () {
+    before('Test winsipBrowser: Start js-controller', function (_done) {
         this.timeout(600000); // because of first install from npm
 
-        setup.setupController(() => {
-            const config = setup.getAdapterConfig();
+        setup.setupController(async () => {
+            const config = await setup.getAdapterConfig();
             // enable adapter
             config.common.enabled  = true;
             config.common.loglevel = 'debug';
@@ -61,7 +61,7 @@ describe('Test winsipbrowser', function () {
                 }
             ];
 
-            setup.setAdapterConfig(config.common, config.native);
+            await setup.setAdapterConfig(config.common, config.native);
 
             setup.startController(
                 true,
@@ -76,7 +76,7 @@ describe('Test winsipbrowser', function () {
         });
     });
 
-    it('Test winsipbrowser: Check if adapter started', done => {
+    it('Test winsipBrowser: Check if adapter started', done => {
         checkConnectionOfAdapter(done);
     }).timeout(5000);
 
