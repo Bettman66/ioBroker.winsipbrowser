@@ -1,0 +1,177 @@
+<html>
+
+<head>
+
+    <!-- Load ioBroker scripts and styles-->
+    <link rel="stylesheet" type="text/css" href="../../lib/css/fancytree/ui.fancytree.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/adapter.css" />
+    <link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
+
+    <script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../socket.io/socket.io.js"></script>
+
+    <script type="text/javascript" src="../../lib/js/materialize.js"></script>
+    <script type="text/javascript" src="../../lib/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../lib/js/jquery.fancytree-all.min.js"></script>
+
+    <script type="text/javascript" src="../../js/translate.js"></script>
+    <script type="text/javascript" src="../../lib/js/selectID.js"></script>
+    <script type="text/javascript" src="../../js/adapter-settings.js"></script>
+    <script type="text/javascript" src="actions.js"></script>
+
+    <!-- Load our own files -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="words.js"></script>
+
+    <script type="text/javascript">
+        var pages = [];
+        var messages = [];
+        // the function loadSettings has to exist ...
+        function load(settings, onChange) {
+            if (!settings) {
+                return;
+            }
+
+            pages = settings.pages || [];
+
+            for (var i = 0; i < pages.length; i++) {
+                if (pages[i].enabled === undefined) {
+                    pages[i].enabled = true;
+                }
+            }
+
+            speak = settings.speak || [];
+
+            for (var i = 0; i < speak.length; i++) {
+                if (speak[i].enabled === undefined) {
+                    speak[i].enabled = true;
+                }
+            }
+
+            for (var key in settings) {
+                if (!settings.hasOwnProperty(key)) {
+                    continue;
+                }
+                var $value = $('#' + key + '.value');
+                if ($value.attr('type') === 'checkbox') {
+                    $value.prop('checked', settings[key]).on('change', function () {
+                        onChange();
+                    });
+                } else {
+                    $value.val(settings[key]).on('change', function () {
+                        onChange();
+                    }).keyup(function () {
+                        onChange();
+                    });
+                }
+            }
+
+            onChange(false);
+            values2table('pages', pages, onChange);
+            values2table('speak', speak, onChange);
+        }
+
+        function save(callback) {
+            var obj = {};
+            $('.value').each(function () {
+                var $this = $(this);
+                if ($this.attr('type') === 'checkbox') {
+                    obj[$this.attr('id')] = $this.prop('checked');
+                } else {
+                    obj[$this.attr('id')] = $this.val();
+                }
+            });
+            // Get edited table
+            obj.pages = table2values('pages');
+            obj.speak = table2values('speak');
+
+            callback(obj);
+        }
+    </script>
+    <style>
+        .m .select-wrapper+label {
+            top: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="m adapter-container">
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s2"><a href="#tab-main" class="translate active">Connection Settings</a></li>
+                    <li class="tab col s2"><a href="#tab-pages" class="translate">Pages</a></li>
+                    <li class="tab col s2"><a href="#tab-speak" class="translate">Speak</a></li>
+                </ul>
+            </div>
+            <div id="tab-main" class="col s12 page">
+                <div class="row">
+                    <div class="col s12 m4 l2">
+                        <img src="winsipbrowser.png" class="logo" alt="logo" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row">
+                        <div class="input-field col s12 m6 l4" id="_url">
+                            <input type="text" id="url" class="value" />
+                            <label class="translate" for="url">URL:</label>
+                        </div>
+                        <div class="input-field col s12 m6 l4">
+                            <input id="port" type="number" min="1" max="65565" class="value" />
+                            <label class="translate" for="port">Port:</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-pages" class="col s12 page">
+                <div class="row">
+                    <div class="col s12 m4 l2">
+                        <img src="winsipbrowser.png" class="logo" alt="logo" />
+                    </div>
+                </div>
+                <div class="col s12" id="pages">
+                    <a class="btn-floating waves-effect waves-light blue table-button-add"><i
+                            class="material-icons">add</i></a>
+                    <div class="table-values-div">
+                        <table class="table-values">
+                            <thead>
+                                <tr>
+                                    <th data-name="_index" style="width: 40px" class="translate"></th>
+                                    <th data-name="name" class="translate">Page</th>
+                                    <th data-name="time" class="translate">Time</th>
+                                    <th data-name="zoom" class="translate">Zoom</th>
+                                    <th data-buttons="delete up down" style="width: 120px"></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-speak" class="col s12 page">
+                <div class="row">
+                    <div class="col s12 m4 l2">
+                        <img src="winsipbrowser.png" class="logo" alt="logo" />
+                    </div>
+                </div>
+                <div class="col s12" id="speak">
+                    <a class="btn-floating waves-effect waves-light blue table-button-add"><i
+                            class="material-icons">add</i></a>
+                    <div class="table-values-div">
+                        <table class="table-values">
+                            <thead>
+                                <tr>
+                                    <th data-name="_index" style="width: 40px" class="translate"></th>
+                                    <th data-name="text" class="translate">Text</th>
+                                    <th data-buttons="delete up down" style="width: 120px"></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

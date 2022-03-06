@@ -1,0 +1,378 @@
+{
+    "common": {
+        "name": "winsipbrowser",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "first commit",
+                "de": "erstes Commit",
+                "ru": "первая фиксация",
+                "pt": "primeiro commit",
+                "nl": "eerste commit",
+                "fr": "premier engagement",
+                "it": "primo impegno",
+                "es": "primer compromiso",
+                "pl": "pierwsze zatwierdzenie",
+                "zh-cn": "第一次提交"
+            }
+        },
+        "title": "winsipbrowser",
+        "titleLang": {
+            "en": "winsipbrowser",
+            "de": "winsipbrowser",
+            "ru": "winsipbrowser",
+            "pt": "winsipbrowser",
+            "nl": "winsipbrowser",
+            "fr": "Navigateur wio",
+            "it": "winsipbrowser",
+            "es": "winsipbrowser",
+            "pl": "winsipbrowser",
+            "zh-cn": "浏览器"
+        },
+        "desc": {
+            "en": "remote Fullscreenbrowser",
+            "de": "Remote-Vollbildbrowser",
+            "ru": "удаленный полноэкранный браузер",
+            "pt": "Fullscreenbrowser remoto",
+            "nl": "afstandsbediening Volledig scherm",
+            "fr": "navigateur plein écran à distance",
+            "it": "browser a schermo intero remoto",
+            "es": "navegador de pantalla completa remoto",
+            "pl": "zdalna przeglądarka pełnoekranowa",
+            "zh-cn": "远程全屏浏览器"
+        },
+        "authors": [
+            "bettman66 <w.zengel@gmx.de>",
+            "bluefox <dogafox@gmail.com>"
+        ],
+        "docs": {},
+        "platform": "Javascript/Node.js",
+        "mode": "daemon",
+        "icon": "winsipbrowser.png",
+        "materialize": true,
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/Bettman66/ioBroker.winsipbrowser/master/admin/winsipbrowser.png",
+        "keywords": [
+            "winsipbrowser",
+            "fullscreenbrowser",
+            "tcp socket"
+        ],
+        "readme": "https://github.com/Bettman66/ioBroker.winsipbrowser/blob/master/README.md",
+        "loglevel": "info",
+        "type": "communication",
+        "connectionType": "local",
+        "dataSource": "push",
+        "license": "MIT",
+        "compact": true,
+        "globalDependencies": [
+            {
+                "admin": ">=5.0.0"
+            }
+        ],
+        "dependencies": [
+            {
+                "js-controller": ">=3.1.0"
+            }
+        ]
+    },
+    "native": {
+        "url": "localhost",
+        "port": "5000",
+        "color": "#FF0004",
+        "top": "0",
+        "left": "0",
+        "font": "8",
+        "transparency": "255"
+    },
+    "objects": [],
+    "instanceObjects": [
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "If connected to winsipbrowser",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "web.sendURL",
+            "type": "state",
+            "common": {
+                "name": "sendURL",
+                "desc": "send URL to Browser",
+                "type": "string",
+                "role": "text",
+                "read": true,
+                "write": true,
+                "def": "https://forum.iobroker.net/"
+            },
+            "native": {}
+        },
+        {
+            "_id": "web.receiveURL",
+            "type": "state",
+            "common": {
+                "name": "receiveURL",
+                "desc": "receive URL from Browser",
+                "type": "string",
+                "role": "text",
+                "read": true,
+                "write": false,
+                "def": ""
+            },
+            "native": {}
+        },
+        {
+            "_id": "web.zoom",
+            "type": "state",
+            "common": {
+                "name": "zoom",
+                "desc": "zoom webpage",
+                "type": "number",
+                "role": "value.zoom",
+                "read": true,
+                "write": true,
+                "def": 1
+            },
+            "native": {}
+        },
+        {
+            "_id": "web.slide",
+            "type": "state",
+            "common": {
+                "name": "slide",
+                "desc": "slideshow on/off",
+                "type": "boolean",
+                "role": "switch",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.ip",
+            "type": "state",
+            "common": {
+                "name": "ip",
+                "desc": "IP from Browser",
+                "type": "string",
+                "role": "text",
+                "read": true,
+                "write": false,
+                "def": ""
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.host",
+            "type": "state",
+            "common": {
+                "name": "host",
+                "desc": "Hostname from Browser",
+                "type": "string",
+                "role": "text",
+                "read": true,
+                "write": false,
+                "def": ""
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.battery",
+            "type": "state",
+            "common": {
+                "name": "battery",
+                "desc": "battery capacity",
+                "type": "number",
+                "role": "value.battery",
+                "read": true,
+                "write": false,
+                "def": 100,
+                "unit": "%"
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.cpu",
+            "type": "state",
+            "common": {
+                "name": "cpu",
+                "desc": "cpu prozesslast",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false,
+                "def": 0,
+                "unit": "%"
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.memory",
+            "type": "state",
+            "common": {
+                "name": "memory",
+                "desc": "memory",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false,
+                "def": 0,
+                "unit": "GB"
+            },
+            "native": {}
+        },
+        {
+            "_id": "screenon",
+            "type": "state",
+            "common": {
+                "role": "switch",
+                "name": "screenon",
+                "desc": "screen on",
+                "type": "boolean",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "screenoff",
+            "type": "state",
+            "common": {
+                "role": "switch",
+                "name": "screenoff",
+                "desc": "screen off",
+                "type": "boolean",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "brightness",
+            "type": "state",
+            "common": {
+                "name": "brightness",
+                "desc": "screen brightness",
+                "type": "number",
+                "role": "value.brightness",
+                "read": true,
+                "write": true,
+                "min": 0,
+                "max": 100,
+                "def": 100,
+                "unit": "%"
+            },
+            "native": {}
+        },
+        {
+            "_id": "volume",
+            "type": "state",
+            "common": {
+                "name": "volume",
+                "desc": "Master Volume",
+                "type": "number",
+                "role": "value.volume",
+                "read": true,
+                "write": true,
+                "min": 0,
+                "max": 100,
+                "def": 25,
+                "unit": "%"
+            },
+            "native": {}
+        },
+        {
+            "_id": "mute",
+            "type": "state",
+            "common": {
+                "role": "switch",
+                "name": "mute",
+                "desc": "mute",
+                "type": "boolean",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "command",
+            "type": "state",
+            "common": {
+                "name": "command",
+                "desc": "send Command to Browser",
+                "type": "string",
+                "role": "text",
+                "read": true,
+                "write": true,
+                "def": ""
+            },
+            "native": {}
+        },
+        {
+            "_id": "messages.texttospeech",
+            "type": "state",
+            "common": {
+                "name": "texttospeech",
+                "desc": "send tts to Browser",
+                "type": "string",
+                "role": "text",
+                "read": true,
+                "write": true,
+                "def": "Hallo"
+            },
+            "native": {}
+        },
+        {
+            "_id": "messages.speakmessage",
+            "type": "state",
+            "common": {
+                "name": "speakmessage",
+                "desc": "Speakmessage Number",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": true,
+                "def": 0
+            },
+            "native": {}
+        },
+        {
+            "_id": "web.error",
+            "type": "state",
+            "common": {
+                "role": "value",
+                "name": "error",
+                "desc": "Error",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "close",
+            "type": "state",
+            "common": {
+                "role": "value",
+                "name": "close",
+                "desc": "Close winsipbrowser",
+                "type": "boolean",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {}
+        }
+    ]
+}
