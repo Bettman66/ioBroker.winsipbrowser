@@ -27,7 +27,6 @@ He can also control:
 + Mute on/off
 + brightness +/-
 + Run programs with switches e.g. C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100
-+ Text Messages
 + Speak Messages
 
 ***
@@ -47,7 +46,6 @@ Er kann auch steuern:
 + Stumm an/aus
 + Helligkeit +/-
 + Programme mit Schaltern ausführen z.B C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100
-+ Text Nachrichten
 + Sprach Nachrichten
 
 ## Link
