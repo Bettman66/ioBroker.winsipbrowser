@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "winsipbrowser",
-        "version": "0.0.1",
+        "version": "0.0.2",
         "news": {
+            "0.0.2": {
+                "en": "add sipcall",
+                "de": "sipcall hinzufügen",
+                "ru": "добавить сипколл",
+                "pt": "adicionar sipcall",
+                "nl": "voeg sipcall toe",
+                "fr": "ajouter un appel sip",
+                "it": "aggiungi sipcall",
+                "es": "añadir sorber llamada",
+                "pl": "dodaj sipcall",
+                "zh-cn": "添加 sipcall"
+            },
             "0.0.1": {
                 "en": "first commit",
                 "de": "erstes Commit",
@@ -151,6 +163,20 @@
                 "role": "switch",
                 "read": true,
                 "write": true,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sip.call",
+            "type": "state",
+            "common": {
+                "name": "call",
+                "desc": "sip call active",
+                "type": "boolean",
+                "role": "switch",
+                "read": true,
+                "write": false,
                 "def": false
             },
             "native": {}
