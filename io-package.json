@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "winsipbrowser",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "news": {
+            "0.0.3": {
+                "en": "add sipring",
+                "de": "nippen hinzu",
+                "ru": "добавить sipring",
+                "pt": "adicionar gole",
+                "nl": "voeg sipring toe",
+                "fr": "ajouter du siprin",
+                "it": "aggiungi sorseggiando",
+                "es": "añadir sorbo",
+                "pl": "dodaj popijkę",
+                "zh-cn": "添加 siring"
+            },
             "0.0.2": {
                 "en": "add sipcall",
                 "de": "sipcall hinzufügen",
@@ -28,17 +40,17 @@
                 "zh-cn": "第一次提交"
             }
         },
-        "title": "winsipbrowser",
+        "title": "WinSipBrowser",
         "titleLang": {
-            "en": "winsipbrowser",
-            "de": "winsipbrowser",
-            "ru": "winsipbrowser",
-            "pt": "winsipbrowser",
-            "nl": "winsipbrowser",
+            "en": "WinSipBrowser",
+            "de": "WinSipBrowser",
+            "ru": "WinSipBrowser",
+            "pt": "WinSipBrowser",
+            "nl": "WinSipBrowser",
             "fr": "Navigateur wio",
-            "it": "winsipbrowser",
-            "es": "winsipbrowser",
-            "pl": "winsipbrowser",
+            "it": "WinSipBrowser",
+            "es": "WinSipBrowser",
+            "pl": "WinSipBrowser",
             "zh-cn": "浏览器"
         },
         "desc": {
@@ -173,6 +185,20 @@
             "common": {
                 "name": "call",
                 "desc": "sip call active",
+                "type": "boolean",
+                "role": "switch",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sip.ring",
+            "type": "state",
+            "common": {
+                "name": "ring",
+                "desc": "sip ring active",
                 "type": "boolean",
                 "role": "switch",
                 "read": true,

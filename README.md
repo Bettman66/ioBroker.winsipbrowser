@@ -52,6 +52,9 @@ Er kann auch steuern:
 * [ioBroker Forum Adapter Thread]()
 
 ## Changelog
+### 0.0.3
+* (bettman66) add sipring
+
 ### 0.0.2
 * (bettman66) add sipcall
 
