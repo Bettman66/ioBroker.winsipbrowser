@@ -49,9 +49,13 @@ Er kann auch steuern:
 + Sprach Nachrichten
 
 ## Link
-* [ioBroker Forum Adapter Thread]()
+* [ioBroker Forum Adapter Thread](https://forum.iobroker.net/topic/53162/neuer-adapter-winsipbrowser-f%C3%BCr-windows)
+* [ioBroker Forum Programm Thread](https://forum.iobroker.net/topic/53032/sprechanlagen-innenstation-browser-mit-sip-client?_=1646732403727)
 
 ## Changelog
+### 0.0.4
+* (bettman66) add siphungup
+
 ### 0.0.3
 * (bettman66) add sipring
 

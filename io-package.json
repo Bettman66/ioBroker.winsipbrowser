@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "winsipbrowser",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "news": {
+            "0.0.4": {
+                "en": "add siphungup",
+                "de": "füge siphungup hinzu",
+                "ru": "добавить siphungup",
+                "pt": "adicionar sifungup",
+                "nl": "voeg siphungup toe",
+                "fr": "ajouter siphungup",
+                "it": "aggiungi siphungup",
+                "es": "añadir siphungup",
+                "pl": "dodaj syphungup",
+                "zh-cn": "添加 siphungup"
+            },
             "0.0.3": {
                 "en": "add sipring",
                 "de": "nippen hinzu",
@@ -199,6 +211,20 @@
             "common": {
                 "name": "ring",
                 "desc": "sip ring active",
+                "type": "boolean",
+                "role": "switch",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sip.hungup",
+            "type": "state",
+            "common": {
+                "name": "hungup",
+                "desc": "sip hungup",
                 "type": "boolean",
                 "role": "switch",
                 "read": true,
