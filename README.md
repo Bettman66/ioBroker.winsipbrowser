@@ -27,6 +27,7 @@ He can also control:
 + Mute on/off
 + brightness +/-
 + Run programs with switches e.g. C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100
++ Text Messages
 + Speak Messages
 
 ***
@@ -46,6 +47,7 @@ Er kann auch steuern:
 + Stumm an/aus
 + Helligkeit +/-
 + Programme mit Schaltern ausführen z.B C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100
++ Text Nachrichten
 + Sprach Nachrichten
 
 ## Link
@@ -53,6 +55,9 @@ Er kann auch steuern:
 * [ioBroker Forum Programm Thread](https://forum.iobroker.net/topic/53032/sprechanlagen-innenstation-browser-mit-sip-client?_=1646732403727)
 
 ## Changelog
+### 0.0.5
+* (bettman66) add messages
+
 ### 0.0.4
 * (bettman66) add siphungup
 

@@ -26,6 +26,7 @@
     <script type="text/javascript">
         var pages = [];
         var messages = [];
+        var speak = [];
         // the function loadSettings has to exist ...
         function load(settings, onChange) {
             if (!settings) {
@@ -37,6 +38,14 @@
             for (var i = 0; i < pages.length; i++) {
                 if (pages[i].enabled === undefined) {
                     pages[i].enabled = true;
+                }
+            }
+
+            messages = settings.messages || [];
+
+            for (var i = 0; i < messages.length; i++) {
+                if (messages[i].enabled === undefined) {
+                    messages[i].enabled = true;
                 }
             }
 
@@ -68,6 +77,7 @@
 
             onChange(false);
             values2table('pages', pages, onChange);
+            values2table('messages', messages, onChange);
             values2table('speak', speak, onChange);
         }
 
@@ -83,6 +93,7 @@
             });
             // Get edited table
             obj.pages = table2values('pages');
+            obj.messages = table2values('messages');
             obj.speak = table2values('speak');
 
             callback(obj);
@@ -102,6 +113,8 @@
                 <ul class="tabs">
                     <li class="tab col s2"><a href="#tab-main" class="translate active">Connection Settings</a></li>
                     <li class="tab col s2"><a href="#tab-pages" class="translate">Pages</a></li>
+                    <li class="tab col s2"><a href="#tab-style" class="translate">Style</a></li>
+                    <li class="tab col s2"><a href="#tab-messages" class="translate">Messages</a></li>
                     <li class="tab col s2"><a href="#tab-speak" class="translate">Speak</a></li>
                 </ul>
             </div>
@@ -141,6 +154,62 @@
                                     <th data-name="name" class="translate">Page</th>
                                     <th data-name="time" class="translate">Time</th>
                                     <th data-name="zoom" class="translate">Zoom</th>
+                                    <th data-buttons="delete up down" style="width: 120px"></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-style" class="col s12 page">
+                <div class="row">
+                    <div class="col s12 m4 l2">
+                        <img src="winsipbrowser.png" class="logo" alt="logo" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row">
+                        <div class="input-field col s12 m6 l4">
+                            <input type="number" id="transparency" min="6" max="32" class="value" />
+                            <label class="translate" for="transparency">Window Transparency</label>
+                        </div>
+                        <div class="input-field col s12 m6 l4">
+                            <input type="number" id="font" min="6" max="32" class="value" />
+                            <label class="translate" for="font">Message Fontsize</label>
+                        </div>
+                        <div class="input-field col s12 m6 l4">
+                            <input id="color" type="text" class="value" />
+                            <label class="translate" for="color">Web Color:</label>
+                        </div>
+                        <div class="input-field col s12 m6 l4">
+                            <input id="top" type="number" min="0" max="800" class="value" />
+                            <label class="translate" for="top">Window Y</label>
+                        </div>
+                        <div class="input-field col s12 m6 l4">
+                            <input id="left" type="number" min="0" max="1800" class="value" />
+                            <label class="translate" for="left">Window X</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-messages" class="col s12 page">
+                <div class="row">
+                    <div class="col s12 m4 l2">
+                        <img src="winsipbrowser.png" class="logo" alt="logo" />
+                    </div>
+                </div>
+                <div class="col s12" id="messages">
+                    <a class="btn-floating waves-effect waves-light blue table-button-add"><i
+                            class="material-icons">add</i></a>
+                    <div class="table-values-div">
+                        <table class="table-values">
+                            <thead>
+                                <tr>
+                                    <th data-name="_index" style="width: 40px" class="translate"></th>
+                                    <th data-name="titel" class="translate">Titel</th>
+                                    <th data-name="caption" class="translate">Caption</th>
+                                    <th data-name="time" class="translate">Time</th>
+                                    <th data-name="color" class="translate">Color</th>
                                     <th data-buttons="delete up down" style="width: 120px"></th>
                                 </tr>
                             </thead>
