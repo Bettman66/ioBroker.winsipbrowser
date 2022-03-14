@@ -30,26 +30,6 @@ He can also control:
 + Text Messages
 + Speak Messages
 
-***
-Dieser Adapter verbindet sich über tcp.socket mit dem winsipbrowser, um ihn zu steuern.
-
-winsipbrowser ist ein Windows Fullscreen Browser mit SipClient der sich über ioBroker steuern lässt, er zeigt einzelne Webseiten an oder eine Webseiten Slideshow die man im Adapter einstellen kann. Es werden auch Infos an den Adapter übertragen:
-+ CPU Last 
-+ freier Speicher
-+ aktuelle Batterieentladung bei Tablet oder Notebook
-+ Hostname
-+ IP
-
-Er kann auch steuern:
-+ Bildschirm an/aus
-+ App beenden
-+ Lautstärke +/-
-+ Stumm an/aus
-+ Helligkeit +/-
-+ Programme mit Schaltern ausführen z.B C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100
-+ Text Nachrichten
-+ Sprach Nachrichten
-
 ## Link
 * [ioBroker Forum Adapter Thread](https://forum.iobroker.net/topic/53162/neuer-adapter-winsipbrowser-f%C3%BCr-windows)
 * [ioBroker Forum Programm Thread](https://forum.iobroker.net/topic/53032/sprechanlagen-innenstation-browser-mit-sip-client?_=1646732403727)
