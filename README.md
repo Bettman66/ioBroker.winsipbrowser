@@ -9,6 +9,7 @@
 
 ## Info
 control of a Windows full-screen browser with sipclient
+
 Adapter for ioBroker
 
 This adapter connects to winsipbrowser via tcp.socket to control it.
@@ -35,6 +36,9 @@ He can also control:
 * [ioBroker Forum Programm Thread](https://forum.iobroker.net/topic/53032/sprechanlagen-innenstation-browser-mit-sip-client?_=1646732403727)
 
 ## Changelog
+### 0.1.0
+* (bettman66) tcpclient2tcpserver
+
 ### 0.0.5
 * (bettman66) add messages
 

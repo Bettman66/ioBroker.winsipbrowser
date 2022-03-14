@@ -12,8 +12,8 @@
 
 const utils = require('@iobroker/adapter-core'); // Get common adapter utils
 const adapterName = require('./package.json').name.split('.').pop();
-const Client      = require('./lib/client');
-let   client      = null;
+const Server = require('./lib/server');
+let server = null;
 let adapter;
 
 function startAdapter(options) {
@@ -27,13 +27,13 @@ function startAdapter(options) {
     });
 
     adapter.on('unload', function (callback) {
-        if (client) client.destroy();
+        if (server) server.destroy();
         callback();
     });
 
     adapter.on('stateChange', (id, state) => {
         if (state && !state.ack) {
-           client.onStateChange(id, state);
+            server.onStateChange(id, state);
         }
     });
     return adapter;
@@ -42,7 +42,7 @@ function startAdapter(options) {
 function main() {
     adapter.subscribeStates('*');
 
-    client = new Client(adapter);
+    server = new Server(adapter);
 }
 
 // If started as allInOne/compact mode => return function to create instance
