@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "winsipbrowser",
-        "version": "0.1.0",
+        "version": "0.1.1",
         "news": {
+            "0.1.1": {
+                "en": "stop slideshown by touchevent",
+                "de": "Diashow von Touchevent stoppen",
+                "ru": "остановить слайд-шоу по touchevent",
+                "pt": "parar a apresentação de slides por touchevent",
+                "nl": "stop diavoorstelling door touchevent",
+                "fr": "arrêter le diaporamamontré par touchevent",
+                "it": "interrompere la presentazione di touchevent",
+                "es": "detener la presentación de diapositivas por evento táctil",
+                "pl": "zatrzymaj pokaz slajdów przez touchevent",
+                "zh-cn": "通过 touchevent 停止幻灯片放映"
+            },
             "0.1.0": {
                 "en": "tcpclient2tcpserver",
                 "de": "tcpclient2tcpserver",
@@ -90,16 +102,16 @@
             "zh-cn": "浏览器"
         },
         "desc": {
-            "en": "remote Fullscreenbrowser",
-            "de": "Remote-Vollbildbrowser",
-            "ru": "удаленный полноэкранный браузер",
-            "pt": "Fullscreenbrowser remoto",
-            "nl": "afstandsbediening Volledig scherm",
-            "fr": "navigateur plein écran à distance",
-            "it": "browser a schermo intero remoto",
-            "es": "navegador de pantalla completa remoto",
-            "pl": "zdalna przeglądarka pełnoekranowa",
-            "zh-cn": "远程全屏浏览器"
+            "en": "remote Sipbrowser",
+            "de": "Remote-Sipbrowser",
+            "ru": "удаленный сипбраузер",
+            "pt": "navegador remoto",
+            "nl": "externe Sipbrowser",
+            "fr": "navigateur Sip à distance",
+            "it": "Sipbrowser remoto",
+            "es": "Navegador Sip remoto",
+            "pl": "zdalna przeglądarka Sip",
+            "zh-cn": "远程 Sipbrowser"
         },
         "authors": [
             "bettman66 <w.zengel@gmx.de>",
