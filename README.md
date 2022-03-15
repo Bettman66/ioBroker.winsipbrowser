@@ -37,7 +37,7 @@ He can also control:
 
 ## Changelog
 ### 0.1.1
-* (bettman66) stop slideshown by touchevent
+* (bettman66) stop slideshow by touchevent
 
 ### 0.1.0
 * (bettman66) tcpclient2tcpserver
