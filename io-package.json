@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "winsipbrowser",
-        "version": "0.1.1",
+        "version": "0.1.2",
         "news": {
+            "0.1.2": {
+                "en": "play musicfile",
+                "de": "Musikdatei abspielen",
+                "ru": "воспроизвести музыкальный файл",
+                "pt": "tocar arquivo de música",
+                "nl": "muziekbestand afspelen",
+                "fr": "lire le fichier musical",
+                "it": "riprodurre file musicale",
+                "es": "reproducir archivo de música",
+                "pl": "odtwórz plik muzyczny",
+                "zh-cn": "播放音乐文件"
+            },
             "0.1.1": {
                 "en": "stop slideshown by touchevent",
                 "de": "Diashow von Touchevent stoppen",
@@ -424,6 +436,20 @@
             "common": {
                 "name": "command",
                 "desc": "send Command to Browser",
+                "type": "string",
+                "role": "text",
+                "read": true,
+                "write": true,
+                "def": ""
+            },
+            "native": {}
+        },
+        {
+            "_id": "audio.play",
+            "type": "state",
+            "common": {
+                "name": "play",
+                "desc": "play music",
                 "type": "string",
                 "role": "text",
                 "read": true,
