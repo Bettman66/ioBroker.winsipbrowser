@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "winsipbrowser",
-        "version": "0.1.2",
+        "version": "0.1.4",
         "news": {
+            "0.1.4": {
+                "en": "change objects",
+                "de": "Gegenstände ändern",
+                "ru": "изменить объекты",
+                "pt": "alterar objetos",
+                "nl": "verander objecten",
+                "fr": "modifier des objets",
+                "it": "cambiare gli oggetti",
+                "es": "cambiar objetos",
+                "pl": "zmień obiekty",
+                "zh-cn": "改变对象"
+            },
             "0.1.2": {
                 "en": "play musicfile",
                 "de": "Musikdatei abspielen",
@@ -400,7 +412,7 @@
             "native": {}
         },
         {
-            "_id": "volume",
+            "_id": "audio.volume",
             "type": "state",
             "common": {
                 "name": "volume",
@@ -417,7 +429,7 @@
             "native": {}
         },
         {
-            "_id": "mute",
+            "_id": "audio.mute",
             "type": "state",
             "common": {
                 "role": "switch",
